@@ -7,6 +7,6 @@
 //
 
 struct NetworkConstans {
-    static var baseURL = "https://www.reddit.com/r/all/top/.json?t=all&limit=10"
+    static var baseURL = "https://www.reddit.com/r/all/top/.json?t=all&limit=10&after="
 }
 

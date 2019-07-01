@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         setupTableView()
         setupRefreshControl()
         setupActivityIndicator()
-        getRedditItems()  
+        getRedditItems()
     }
     
     func getRedditItems()  {
@@ -56,7 +56,19 @@ class ViewController: UIViewController {
     }
     
     @objc func loadMoreAction() {
-        
+        if let lastAutorId = redditItems.last?.itemId {
+            activityIndicator.startAnimating()
+            ApiCall.getItemsCall(lastAutorId ,onSuccess: { items in
+                if let items = items?.responseItems {
+                    self.redditItems = self.redditItems + items
+                    DispatchQueue.main.async{
+                        self.tableView.reloadData()
+                        self.activityIndicator.stopAnimating()
+                        self.refreshControl.endRefreshing()
+                    }
+                }
+            })
+        }
     }
     
     func setupTableView() {

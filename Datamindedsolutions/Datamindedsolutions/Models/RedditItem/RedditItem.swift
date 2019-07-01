@@ -8,6 +8,7 @@
 
 
 class RedditItem  {
+    var itemId: String?
     var likes: String?
     var name: String?
     var title: String?
@@ -34,6 +35,10 @@ class RedditItem  {
         if  let test = json["data"] as? [String: Any] {
             
             for (key,value) in test {
+                
+                if key == "id" {
+                    itemId = value as? String ?? ""
+                }
                 
                 if key == "url" {
                     url = value as? String ?? ""
