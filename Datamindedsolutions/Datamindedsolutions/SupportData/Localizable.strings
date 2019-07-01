@@ -1,0 +1,21 @@
+
+//DateDetails
+"DateDetails_Navigation_RightButton_Title" = "Save";
+"DateDetails_CellProject_Title" = "Project: ";
+"DateDetails_CellTask_Title" = "Task: ";
+"DateDetails_CellDescription_Title" = "Description: ";
+"DateDetails_Screen_Title" = "dfTitle";
+//DatesList
+"DatesList_Navigation_LeftButton_Title" = "Settings";
+"DatesList_Screen_Title" = "Current Date";
+//Settings
+"Settings_Screen_Title" = "Settings";
+"Settings_LogoutButton_Title" = "logout";
+// Login
+"Login_LoginButton_Title" = "Login";
+"Login_PasswordTextField_Placeholder" = " Password";
+"Login_LoginTextField_Placeholder" = " Login";
+"Login_PasswordLabel_Title" = "Password";
+"Login_LoginLabel_Title" = "Username / Email";
+
+
