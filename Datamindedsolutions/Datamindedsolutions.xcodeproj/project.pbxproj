@@ -17,6 +17,7 @@
 		9CB8FC2022CAACE000F1820F /* RedditItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB8FC1F22CAACE000F1820F /* RedditItem.swift */; };
 		9CB8FC2422CAB11C00F1820F /* ApiCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB8FC2322CAB11C00F1820F /* ApiCall.swift */; };
 		9CB8FC2722CAB1DD00F1820F /* RedditResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB8FC2622CAB1DD00F1820F /* RedditResponse.swift */; };
+		9CB8FC2922CACA3F00F1820F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB8FC2822CACA3F00F1820F /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		9CB8FC1F22CAACE000F1820F /* RedditItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditItem.swift; sourceTree = "<group>"; };
 		9CB8FC2322CAB11C00F1820F /* ApiCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCall.swift; sourceTree = "<group>"; };
 		9CB8FC2622CAB1DD00F1820F /* RedditResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditResponse.swift; sourceTree = "<group>"; };
+		9CB8FC2822CACA3F00F1820F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				9CB8FC1822CAABD300F1820F /* Views */,
 				9CB8FC0122CA98C200F1820F /* AppDelegate.swift */,
 				9CB8FC0322CA98C200F1820F /* ViewController.swift */,
+				9CB8FC2822CACA3F00F1820F /* DetailViewController.swift */,
 				9CB8FC0A22CA98C400F1820F /* LaunchScreen.storyboard */,
 				9CB8FC0D22CA98C400F1820F /* Info.plist */,
 				9CB8FC1322CAA82200F1820F /* SupportData */,
@@ -221,6 +224,7 @@
 				9CB8FC2422CAB11C00F1820F /* ApiCall.swift in Sources */,
 				9CB8FC2722CAB1DD00F1820F /* RedditResponse.swift in Sources */,
 				9CB8FC0222CA98C200F1820F /* AppDelegate.swift in Sources */,
+				9CB8FC2922CACA3F00F1820F /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -105,7 +105,10 @@ class ViewController: UIViewController {
 }
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let item = redditItems[indexPath.row]
+        let detailVC = DetailViewController(item: item)
+        detailVC.view.backgroundColor = UIColor.white
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 extension ViewController: UITableViewDataSource {

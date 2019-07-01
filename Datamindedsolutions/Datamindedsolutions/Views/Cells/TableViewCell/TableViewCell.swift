@@ -47,4 +47,6 @@ class TableViewCell : UITableViewCell {
         ivAvatar.heightAnchor.constraint(equalToConstant: 135).isActive = true
         ivAvatar.widthAnchor.constraint(equalToConstant: 135).isActive = true
     }
+    
+    
 }
