@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     private let tableviewCellHeight: CGFloat = 305.0
     private let reuseIdentifier = "TableViewCell"
     private var redditItems = [RedditItem]()
-    
+    private static let encodingKeyRedditItems = "encodingKeyRedditItems"
     
     
     override func viewDidLoad() {
@@ -84,6 +84,24 @@ class ViewController: UIViewController {
         tableView?.register(TableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
     }
     
+    /// RestorableStat
+    override func encodeRestorableState(with coder: NSCoder) {
+        super.encodeRestorableState(with: coder)
+                guard redditItems.count > 0  else {
+                    return
+                }
+        
+        coder.encode(redditItems.count, forKey: ViewController.encodingKeyRedditItems)
+    }
+    
+    override func decodeRestorableState(with coder: NSCoder) {
+        super.decodeRestorableState(with: coder)
+        redditItems = coder.decodeObject(forKey: ViewController.encodingKeyRedditItems) as! [RedditItem]
+    }
+    
+    override func applicationFinishedRestoringState() {
+        print("Finished restoring everything.")
+    }
 }
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
