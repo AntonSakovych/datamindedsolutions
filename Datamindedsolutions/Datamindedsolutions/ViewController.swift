@@ -28,8 +28,21 @@ class ViewController: UIViewController {
         setupTableView()
         setupRefreshControl()
         setupActivityIndicator()
+        getRedditItems()  
     }
     
+    func getRedditItems()  {
+        activityIndicator.startAnimating()
+        ApiCall.getItemsCall { items in
+            if let items = items?.responseItems {
+                self.redditItems = items
+                DispatchQueue.main.async{
+                    self.tableView.reloadData()
+                    self.activityIndicator.stopAnimating()
+                }
+            }
+        }
+    }
     
     func setupActivityIndicator() {
         activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
