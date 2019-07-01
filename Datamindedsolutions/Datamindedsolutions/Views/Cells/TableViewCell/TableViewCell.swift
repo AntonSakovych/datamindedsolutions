@@ -6,4 +6,5 @@
 //  Copyright © 2019 Anton Sakovych. All rights reserved.
 //
 
-import Foundation
+import UIKit
+class TableViewCell : UITableViewCell { }

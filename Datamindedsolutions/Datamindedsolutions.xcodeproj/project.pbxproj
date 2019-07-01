@@ -9,19 +9,25 @@
 /* Begin PBXBuildFile section */
 		9CB8FC0222CA98C200F1820F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB8FC0122CA98C200F1820F /* AppDelegate.swift */; };
 		9CB8FC0422CA98C200F1820F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB8FC0322CA98C200F1820F /* ViewController.swift */; };
-		9CB8FC0722CA98C200F1820F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CB8FC0522CA98C200F1820F /* Main.storyboard */; };
 		9CB8FC0922CA98C400F1820F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CB8FC0822CA98C400F1820F /* Assets.xcassets */; };
 		9CB8FC0C22CA98C400F1820F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CB8FC0A22CA98C400F1820F /* LaunchScreen.storyboard */; };
+		9CB8FC1522CAA84C00F1820F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9CB8FC1422CAA84C00F1820F /* Localizable.strings */; };
+		9CB8FC1722CAA86F00F1820F /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB8FC1622CAA86F00F1820F /* NetworkConstants.swift */; };
+		9CB8FC1C22CAAC0600F1820F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB8FC1B22CAAC0600F1820F /* TableViewCell.swift */; };
+		9CB8FC2022CAACE000F1820F /* RedditItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB8FC1F22CAACE000F1820F /* RedditItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9CB8FBFE22CA98C200F1820F /* Datamindedsolutions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Datamindedsolutions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CB8FC0122CA98C200F1820F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CB8FC0322CA98C200F1820F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9CB8FC0622CA98C200F1820F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9CB8FC0822CA98C400F1820F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9CB8FC0B22CA98C400F1820F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9CB8FC0D22CA98C400F1820F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CB8FC1422CAA84C00F1820F /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		9CB8FC1622CAA86F00F1820F /* NetworkConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		9CB8FC1B22CAAC0600F1820F /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		9CB8FC1F22CAACE000F1820F /* RedditItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +60,65 @@
 		9CB8FC0022CA98C200F1820F /* Datamindedsolutions */ = {
 			isa = PBXGroup;
 			children = (
+				9CB8FC1D22CAACB700F1820F /* Models */,
+				9CB8FC1822CAABD300F1820F /* Views */,
 				9CB8FC0122CA98C200F1820F /* AppDelegate.swift */,
 				9CB8FC0322CA98C200F1820F /* ViewController.swift */,
-				9CB8FC0522CA98C200F1820F /* Main.storyboard */,
-				9CB8FC0822CA98C400F1820F /* Assets.xcassets */,
 				9CB8FC0A22CA98C400F1820F /* LaunchScreen.storyboard */,
 				9CB8FC0D22CA98C400F1820F /* Info.plist */,
+				9CB8FC1322CAA82200F1820F /* SupportData */,
 			);
 			path = Datamindedsolutions;
+			sourceTree = "<group>";
+		};
+		9CB8FC1322CAA82200F1820F /* SupportData */ = {
+			isa = PBXGroup;
+			children = (
+				9CB8FC0822CA98C400F1820F /* Assets.xcassets */,
+				9CB8FC1422CAA84C00F1820F /* Localizable.strings */,
+				9CB8FC1622CAA86F00F1820F /* NetworkConstants.swift */,
+			);
+			path = SupportData;
+			sourceTree = "<group>";
+		};
+		9CB8FC1822CAABD300F1820F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9CB8FC1922CAABE100F1820F /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9CB8FC1922CAABE100F1820F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9CB8FC1A22CAABEC00F1820F /* TableViewCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		9CB8FC1A22CAABEC00F1820F /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				9CB8FC1B22CAAC0600F1820F /* TableViewCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		9CB8FC1D22CAACB700F1820F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9CB8FC1E22CAACC100F1820F /* RedditItem */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9CB8FC1E22CAACC100F1820F /* RedditItem */ = {
+			isa = PBXGroup;
+			children = (
+				9CB8FC1F22CAACE000F1820F /* RedditItem.swift */,
+			);
+			path = RedditItem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,8 +180,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CB8FC0C22CA98C400F1820F /* LaunchScreen.storyboard in Resources */,
+				9CB8FC1522CAA84C00F1820F /* Localizable.strings in Resources */,
 				9CB8FC0922CA98C400F1820F /* Assets.xcassets in Resources */,
-				9CB8FC0722CA98C200F1820F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +192,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CB8FC2022CAACE000F1820F /* RedditItem.swift in Sources */,
+				9CB8FC1722CAA86F00F1820F /* NetworkConstants.swift in Sources */,
+				9CB8FC1C22CAAC0600F1820F /* TableViewCell.swift in Sources */,
 				9CB8FC0422CA98C200F1820F /* ViewController.swift in Sources */,
 				9CB8FC0222CA98C200F1820F /* AppDelegate.swift in Sources */,
 			);
@@ -143,14 +203,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		9CB8FC0522CA98C200F1820F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9CB8FC0622CA98C200F1820F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		9CB8FC0A22CA98C400F1820F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
