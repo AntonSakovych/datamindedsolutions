@@ -7,8 +7,32 @@
 //
 
 import Foundation
-
+import UIKit
 class ApiCall {
+    
+    private static var imageCache = [URL : UIImage]()
+    
+    static func loadImageFrom(_ url: URL, callback: @escaping (URL, UIImage?) -> Void) {
+        DispatchQueue.global().async {
+            var image: UIImage?
+            if let data = try? Data(contentsOf: url) {
+                image = UIImage(data: data)
+                if let image = image {
+                    imageCache[url] = image
+                }
+            }
+            DispatchQueue.main.async {
+                callback(url, image)
+            }
+        }
+    }
+    
+    static func cacheImageFor(_ url: URL?) -> UIImage? {
+        if let url = url {
+            return imageCache[url]
+        }
+        return nil
+    }
     
     static func getItemsCall(_ lastAutorId: String = "",  onSuccess: @escaping (_ data: RedditResponse?) -> Void)  {
         

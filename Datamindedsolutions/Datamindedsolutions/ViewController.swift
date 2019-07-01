@@ -115,8 +115,14 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as? TableViewCell
+        
+        let redditItem = redditItems[indexPath.row]
+        
+        cell?.configureteCell(item: redditItem)
+        
         return cell!
     }
 }
+
 
 
