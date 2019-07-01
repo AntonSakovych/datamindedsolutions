@@ -17,8 +17,6 @@ class DetailViewController: UIViewController {
     /// Properties
     var redditItem : RedditItem?
     
-    
-    
     required init(item: RedditItem?) {
         redditItem = item
         super.init(nibName: nil, bundle: nil)
@@ -34,8 +32,8 @@ class DetailViewController: UIViewController {
         setupOutlets()
         setupConstraints()
         configureteSelf()
+        addGesture()
     }
-    
     
     
     func configureteSelf() {
@@ -60,7 +58,34 @@ class DetailViewController: UIViewController {
         ivAvatar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5).isActive = true
         ivAvatar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5).isActive = true
         ivAvatar.heightAnchor.constraint(equalToConstant: 200).isActive = true
-
     }
     
+    
+    /// fuctions
+    func addGesture() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        ivAvatar.isUserInteractionEnabled = true
+        ivAvatar.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        
+        guard tappedImage.image != nil else {
+            print("Image not found!")
+            return
+        }
+        
+        UIImageWriteToSavedPhotosAlbum(tappedImage.image!, self, #selector(DetailViewController.image(_:didFinishSavingWithError:contextInfo:)), nil)
+        
+    }
+    
+    @objc func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
+        
+        if error != nil {
+            print("Save error")
+        } else {
+            print("Saved!")
+        }
+    }
 }
