@@ -31,6 +31,11 @@ class ViewController: UIViewController {
         getRedditItems()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     func getRedditItems()  {
         activityIndicator.startAnimating()
         ApiCall.getItemsCall { items in
@@ -87,9 +92,9 @@ class ViewController: UIViewController {
     /// RestorableStat
     override func encodeRestorableState(with coder: NSCoder) {
         super.encodeRestorableState(with: coder)
-                guard redditItems.count > 0  else {
-                    return
-                }
+        guard redditItems.count > 0  else {
+            return
+        }
         
         coder.encode(redditItems.count, forKey: ViewController.encodingKeyRedditItems)
     }
@@ -106,6 +111,7 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = redditItems[indexPath.row]
+        item.isOpen = true
         let detailVC = DetailViewController(item: item)
         detailVC.view.backgroundColor = UIColor.white
         navigationController?.pushViewController(detailVC, animated: true)

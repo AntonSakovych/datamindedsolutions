@@ -8,6 +8,7 @@
 
 
 class RedditItem  {
+    var isOpen = false
     var itemId: String?
     var likes: String?
     var name: String?

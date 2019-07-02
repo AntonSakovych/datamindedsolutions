@@ -8,9 +8,12 @@
 
 import UIKit
 class TableViewCell : UITableViewCell {
+    /// Outlets
     
     var ivAvatar: UIImageView!
+    var ivViewStatus: UIImageView!
     
+    /// Properties
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupOutlets()
@@ -22,10 +25,16 @@ class TableViewCell : UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     func configureteCell(item: RedditItem) {
         
+        if item.isOpen == true {
+            ivViewStatus.backgroundColor = UIColor.white
+        } else {
+             ivViewStatus.backgroundColor = UIColor.blue
+        }
+        
         if let linkUrl = item.thumbnailLink {
-            
             ApiCall.loadImageFrom(NSURL(string: linkUrl)! as URL) { (url, imege) in
                 self.ivAvatar.image = imege
             }
@@ -34,6 +43,12 @@ class TableViewCell : UITableViewCell {
     
     func setupOutlets() {
         
+        ivViewStatus = UIImageView()
+        ivViewStatus.backgroundColor = UIColor.blue
+        ivViewStatus.layer.cornerRadius = 9
+        ivViewStatus.clipsToBounds = true
+        addSubview(ivViewStatus)
+        
         ivAvatar = UIImageView()
         ivAvatar.contentMode = UIView.ContentMode.scaleAspectFit
         addSubview(ivAvatar)
@@ -41,11 +56,19 @@ class TableViewCell : UITableViewCell {
     
     func setupConstraints() {
         
+        // ivAvatar
         ivAvatar.translatesAutoresizingMaskIntoConstraints = false
         ivAvatar.topAnchor.constraint(equalTo: topAnchor, constant: 35).isActive = true
         ivAvatar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive = true
         ivAvatar.heightAnchor.constraint(equalToConstant: 135).isActive = true
         ivAvatar.widthAnchor.constraint(equalToConstant: 135).isActive = true
+        
+        // ivViewStatus
+        ivViewStatus.translatesAutoresizingMaskIntoConstraints = false
+        ivViewStatus.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive = true
+        ivViewStatus.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
+        ivViewStatus.heightAnchor.constraint(equalToConstant: 18).isActive = true
+        ivViewStatus.widthAnchor.constraint(equalToConstant: 18).isActive = true
     }
     
     
