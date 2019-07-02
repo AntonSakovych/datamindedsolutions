@@ -12,10 +12,10 @@ class DetailViewController: UIViewController {
     
     
     /// Outlets
-    var ivAvatar: UIImageView!
+    private var ivAvatar: UIImageView!
     
     /// Properties
-    var redditItem : RedditItem?
+    private var redditItem : RedditItem?
     
     required init(item: RedditItem?) {
         redditItem = item

@@ -12,8 +12,8 @@ class ViewController: UIViewController {
     /// Outlets
     private var tableView: UITableView!
     private var activityIndicator: UIActivityIndicatorView!
-    private let refreshControl = UIRefreshControl()
-    
+    private var refreshControl = UIRefreshControl()
+    private var btnRemoveAll: UIButton!
     /// Properties
     
     private let tableviewCellHeight: CGFloat = 305.0
@@ -21,6 +21,10 @@ class ViewController: UIViewController {
     private var redditItems = [RedditItem]()
     private static let encodingKeyRedditItems = "encodingKeyRedditItems"
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +33,23 @@ class ViewController: UIViewController {
         setupRefreshControl()
         setupActivityIndicator()
         getRedditItems()
+        setupRemoveAll()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    func setupRemoveAll() {
+        btnRemoveAll = UIButton()
+        btnRemoveAll.setTitle(NSLocalizedString("ViewController_Screen_Button", comment: ""),for: .normal)
+        btnRemoveAll.addTarget(self, action: #selector(removeAllAction), for: .touchUpInside)
+        view.addSubview(btnRemoveAll)
+        btnRemoveAll.translatesAutoresizingMaskIntoConstraints = false
+        btnRemoveAll.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5).isActive = true
+        btnRemoveAll.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 5).isActive = true
+        btnRemoveAll.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        btnRemoveAll.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -5).isActive = true
+    }
+    
+    @objc func removeAllAction() {
+        redditItems.removeAll()
         tableView.reloadData()
     }
     
@@ -108,6 +125,7 @@ class ViewController: UIViewController {
         print("Finished restoring everything.")
     }
 }
+
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = redditItems[indexPath.row]
@@ -117,6 +135,7 @@ extension ViewController: UITableViewDelegate {
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }
+
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return redditItems.count
