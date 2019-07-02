@@ -36,6 +36,19 @@ class ViewController: UIViewController {
         setupRemoveAll()
     }
     
+    func setupTableView() {
+        tableView = UITableView(frame: view.bounds, style: .plain)
+        tableView?.delegate = self
+        tableView?.dataSource = self
+        self.tableView.rowHeight = tableviewCellHeight
+        
+        tableView.backgroundColor = UIColor.black
+        if let tableView = tableView {
+            view.addSubview(tableView)
+        }
+        tableView?.register(TableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
+    }
+    
     func setupRemoveAll() {
         btnRemoveAll = UIButton()
         btnRemoveAll.setTitle(NSLocalizedString("ViewController_Screen_Button", comment: ""),for: .normal)
@@ -93,17 +106,10 @@ class ViewController: UIViewController {
         }
     }
     
-    func setupTableView() {
-        tableView = UITableView(frame: view.bounds, style: .plain)
-        tableView?.delegate = self
-        tableView?.dataSource = self
-        self.tableView.rowHeight = tableviewCellHeight
-        
-        tableView.backgroundColor = UIColor.black
-        if let tableView = tableView {
-            view.addSubview(tableView)
-        }
-        tableView?.register(TableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
+    @objc func removeCell(sender: UIButton!) {
+        redditItems.remove(at: sender.tag)
+        tableView.deleteRows(at: [NSIndexPath(item: sender.tag, section: 0) as IndexPath], with: .left)
+        tableView.reloadData()
     }
     
     /// RestorableStat
@@ -147,7 +153,8 @@ extension ViewController: UITableViewDataSource {
         let redditItem = redditItems[indexPath.row]
         
         cell?.configureteCell(item: redditItem)
-        
+        cell?.btnRemoveCell.tag = indexPath.row
+        cell?.btnRemoveCell.addTarget(self, action: #selector(removeCell), for: .touchUpInside)
         return cell!
     }
 }

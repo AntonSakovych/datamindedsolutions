@@ -12,6 +12,7 @@ class TableViewCell : UITableViewCell {
     
     var ivAvatar: UIImageView!
     var ivViewStatus: UIImageView!
+    var btnRemoveCell: UIButton!
     
     /// Properties
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -52,6 +53,11 @@ class TableViewCell : UITableViewCell {
         ivAvatar = UIImageView()
         ivAvatar.contentMode = UIView.ContentMode.scaleAspectFit
         addSubview(ivAvatar)
+        
+        btnRemoveCell = UIButton()
+        btnRemoveCell.setTitle(NSLocalizedString("Cell_Button", comment: ""),for: .normal)
+        addSubview(btnRemoveCell)
+        
     }
     
     func setupConstraints() {
@@ -69,6 +75,14 @@ class TableViewCell : UITableViewCell {
         ivViewStatus.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
         ivViewStatus.heightAnchor.constraint(equalToConstant: 18).isActive = true
         ivViewStatus.widthAnchor.constraint(equalToConstant: 18).isActive = true
+        
+        // btnRemoveCell
+        btnRemoveCell.translatesAutoresizingMaskIntoConstraints = false
+        btnRemoveCell.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive = true
+        btnRemoveCell.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).isActive = true
+        btnRemoveCell.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        btnRemoveCell.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        
     }
     
     

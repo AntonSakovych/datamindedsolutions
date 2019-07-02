@@ -2,3 +2,4 @@
 //ViewController
 "ViewController_Screen_Title" = "Reddit Posts";
 "ViewController_Screen_Button" = "Dismiss All";
+"Cell_Button" = "Dismiss Post";
